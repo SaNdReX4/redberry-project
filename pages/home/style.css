@@ -76,6 +76,7 @@ nav {
   background-image: url(../../assets/images/carousel1.webp);
   background-repeat: no-repeat;
   height: 420px;
+  width: 1566px;
 }
 
 .btn-Browse-Courses {
@@ -186,4 +187,75 @@ nav {
 
 .star-rating span {
   display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  color: #525252;
+}
+
+.star-rating p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+}
+
+.card-text h2 {
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #141414;
+}
+
+.card-text p {
+  margin-top: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #666666;
+}
+
+.card-footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer p {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #8a8a8a;
+  display: flex;
+  align-items: center;
+}
+
+.card-footer span {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #141414;
+  padding-left: 8px;
+}
+
+.card-footer-btn {
+  background-color: #4f46e5;
+  color: white;
+  padding: 18px 27px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+}
+
+.card-wrapper {
+  display: flex;
+  gap: 24px;
 }
