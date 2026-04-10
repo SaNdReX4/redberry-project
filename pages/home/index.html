@@ -55,8 +55,19 @@
             </div>
           </a>
 
-          <button class="btn-login">Log In</button>
-          <button class="btn-signup">Sign Up</button>
+          <button class="btn-login" id="openLoginBtn">Log In</button>
+          <button class="btn-signup" id="openModalBtn">Sign Up</button>
+
+          <div id="user-zone" class="user-profile hidden">
+            <a href="#" class="enrolled-courses-link">Enrolled Courses</a>
+            <div class="user-avatar">
+              <img
+                src="../../assets/icons/Avatar.svg"
+                alt="User Avatar"
+                id="headerAvatar"
+              />
+            </div>
+          </div>
         </div>
       </nav>
     </header>
@@ -415,5 +426,169 @@
         </p>
       </div>
     </footer>
+
+    <!-- რეგისტრაციის მოდალი -->
+
+    <div id="signupModal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button id="backBtn" class="hidden">
+            <img src="../../assets/icons/weui_arrow-outlined.svg" alt="Back" />
+          </button>
+          <button id="closeModal">
+            <img src="../../assets/icons/ic_round-close.svg" alt="Close" />
+          </button>
+        </div>
+
+        <div class="modal-title">
+          <h2 id="stepTitle">Create Account</h2>
+          <p id="stepSubtitle">Join and start learning today</p>
+        </div>
+
+        <div class="progress-bar">
+          <span class="line active"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+
+        <form id="signupForm">
+          <div class="form-step step-1 active">
+            <div class="input-group">
+              <label>Email*</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+            <button type="button" class="primary-btn next-btn">Next</button>
+          </div>
+
+          <div class="form-step step-2">
+            <div class="input-group">
+              <label>Password*</label>
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                  required
+                />
+                <img
+                  src="../../assets/icons/Icon Set=eye open.svg"
+                  class="toggle-password"
+                  data-target="password"
+                  alt="Toggle Password"
+                />
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label>Confirm Password*</label>
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  placeholder="Confirm Password"
+                  required
+                />
+                <img
+                  src="../../assets/icons/Icon Set=eye closed.svg"
+                  class="toggle-password"
+                  data-target="confirmPassword"
+                  alt="Toggle Password"
+                />
+              </div>
+            </div>
+
+            <button type="button" class="primary-btn next-btn">Next</button>
+          </div>
+
+          <div class="form-step step-3">
+            <div class="input-group">
+              <label>Username*</label>
+              <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div class="upload-avatar">
+              <label>Upload Avatar</label>
+              <div class="upload-dropzone" id="dropzone">
+                <input type="file" id="avatarInput" hidden accept="image/*" />
+                <img src="../../assets/icons/Icon upload.svg" alt="" />
+                <p id="uploadText">Drag and drop or <span>Upload file</span></p>
+              </div>
+            </div>
+            <button type="submit" class="primary-btn">Sign Up</button>
+          </div>
+        </form>
+        <div class="modal-footer">
+          <div class="or-divider"><span>or</span></div>
+          <p>Already have an account? <a href="#">Log In</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ლოგინის მოდალი -->
+
+    <div id="loginModal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div></div>
+          <button id="closeLoginModal">
+            <img src="../../assets/icons/ic_round-close.svg" alt="Close" />
+          </button>
+        </div>
+
+        <div class="modal-title">
+          <h2>Welcome Back</h2>
+          <p>Log in to your account to continue</p>
+        </div>
+
+        <form id="loginForm">
+          <div class="input-group">
+            <label>Email*</label>
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Password*</label>
+            <div class="password-wrapper">
+              <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+                required
+              />
+              <img
+                src="../../assets/icons/Icon Set=eye closed.svg"
+                class="toggle-password"
+                data-target="loginPassword"
+                alt="Toggle"
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="primary-btn">Log In</button>
+        </form>
+
+        <div class="modal-footer">
+          <div class="or-divider"><span>or</span></div>
+          <p>
+            Don't have an account? <a href="#" id="switchToSignup">Sign Up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
