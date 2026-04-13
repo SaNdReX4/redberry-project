@@ -1,131 +1,123 @@
-const modal = document.getElementById("signupModal");
-const openBtn = document.getElementById("openModalBtn");
-const closeBtn = document.getElementById("closeModal");
-const backBtn = document.getElementById("backBtn");
-const nextButtons = document.querySelectorAll(".next-btn");
-const steps = document.querySelectorAll(".form-step");
-const lines = document.querySelectorAll(".progress-bar .line");
+const API_URL = "https://api.redclass.redberryinternship.ge/api";
 
-let currentStep = 1;
+function updateAuthUI(isLoggedIn, userData = null) {
+  const userZone = document.getElementById("user-zone");
+  const guestZone = document.getElementById("guest-zone");
+  const headerAvatar = document.getElementById("headerAvatar");
 
-openBtn.onclick = () => (modal.style.display = "flex");
-closeBtn.onclick = () => (modal.style.display = "none");
-
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-});
-
-nextButtons.forEach((btn) => {
-  btn.onclick = () => {
-    changeStep(currentStep + 1);
-  };
-});
-
-backBtn.onclick = () => {
-  changeStep(currentStep - 1);
-};
-
-function changeStep(newStep) {
-  steps[currentStep - 1].classList.remove("active");
-  lines[currentStep - 1].classList.remove("active");
-
-  currentStep = newStep;
-
-  steps[currentStep - 1].classList.add("active");
-  lines[currentStep - 1].classList.add("active");
-
-  if (currentStep > 1) {
-    backBtn.classList.remove("hidden");
+  if (isLoggedIn) {
+    if (userZone) userZone.style.setProperty("display", "flex", "important");
+    if (guestZone) guestZone.style.setProperty("display", "none", "important");
+    if (headerAvatar && userData && userData.avatar) {
+      headerAvatar.src = userData.avatar;
+    }
   } else {
-    backBtn.classList.add("hidden");
+    if (userZone) userZone.style.setProperty("display", "none", "important");
+    if (guestZone) guestZone.style.setProperty("display", "flex", "important");
   }
 }
 
-const closeModalWithReset = () => {
-  modal.style.display = "none";
-  changeStep(1);
-};
+// გვერდის ჩატვირთვისას ტოკენის შემოწმება
+window.addEventListener("load", async () => {
+  const token = localStorage.getItem("user_token");
 
-closeBtn.onclick = closeModalWithReset;
+  if (token && token !== "null" && token !== "undefined") {
+    try {
+      const response = await fetch(`${API_URL}/me`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) closeModalWithReset();
-});
-
-// პაროლის გამოჩენა დამალვა
-
-document.querySelectorAll(".toggle-password").forEach((icon) => {
-  icon.addEventListener("click", function () {
-    const inputId = this.getAttribute("data-target");
-    const input = document.getElementById(inputId);
-
-    if (input.type === "password") {
-      input.type = "text";
-      this.src = "../../assets/icons/Icon Set=eye open.svg";
-    } else {
-      input.type = "password";
-      this.src = "../../assets/icons/Icon Set=eye closed.svg";
+      if (response.status === 200) {
+        const result = await response.json();
+        updateAuthUI(true, result.data);
+      } else {
+        localStorage.removeItem("user_token");
+        updateAuthUI(false);
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      updateAuthUI(false);
     }
-  });
+  } else {
+    updateAuthUI(false);
+  }
 });
 
-// დრაგ ანდ დროპი
+function handleApiErrors(errors, formId) {
+  const form = document.getElementById(formId);
+  if (!form) return;
 
-const dropzone = document.getElementById("dropzone");
-const avatarInput = document.getElementById("avatarInput");
-const uploadText = document.getElementById("uploadText");
+  form
+    .querySelectorAll(".input-group")
+    .forEach((group) => group.classList.remove("error"));
+  form.querySelectorAll(".error-msg").forEach((msg) => (msg.innerText = ""));
 
-dropzone.addEventListener("click", () => {
-  avatarInput.click();
-});
-
-avatarInput.addEventListener("change", function () {
-  handleFiles(this.files);
-});
-
-dropzone.addEventListener("dragover", (e) => {
-  e.preventDefault();
-  dropzone.style.borderColor = "#4F46E5";
-});
-
-dropzone.addEventListener("dragleave", () => {
-  dropzone.style.borderColor = "";
-});
-
-dropzone.addEventListener("drop", (e) => {
-  e.preventDefault();
-  dropzone.style.borderColor = "";
-
-  const files = e.dataTransfer.files;
-  handleFiles(files);
-});
-
-function handleFiles(files) {
-  if (files.length > 0) {
-    const file = files[0];
-
-    if (file.type.startsWith("image/")) {
-      avatarInput.files = files;
-      uploadText.innerHTML = `Selected: <b>${file.name}</b>`;
-    } else {
-      alert("გთხოვთ ატვირთოთ მხოლოდ სურათი!");
+  for (const field in errors) {
+    const input =
+      form.querySelector(`input[id*="${field}"]`) ||
+      form.querySelector(`#${field}`);
+    if (input) {
+      const container = input.closest(".input-group");
+      if (container) {
+        container.classList.add("error");
+        const errorMsg = container.querySelector(".error-msg");
+        if (errorMsg) errorMsg.innerText = errors[field][0];
+      }
     }
   }
 }
 
-// ლოგინის მოდალი
-
+// 4. ლოგინის მოდალის  გახსნა
 const loginModal = document.getElementById("loginModal");
 const openLoginBtn = document.getElementById("openLoginBtn");
 const closeLoginBtn = document.getElementById("closeLoginModal");
 
-if (openLoginBtn) {
+if (openLoginBtn)
   openLoginBtn.onclick = () => (loginModal.style.display = "flex");
-}
+if (closeLoginBtn)
+  closeLoginBtn.onclick = () => (loginModal.style.display = "none");
 
-closeLoginBtn.onclick = () => (loginModal.style.display = "none");
-window.onclick = (e) => {
+window.addEventListener("click", (e) => {
   if (e.target === loginModal) loginModal.style.display = "none";
-};
+});
+
+// ეს ფუნქცია ამოწმებს კონკრეტულ სთეპში არსებულ ინპუტებს
+function validateStepInputs(stepElement) {
+  const inputs = stepElement.querySelectorAll("input[required]");
+  let stepErrors = {};
+  let isValid = true;
+
+  inputs.forEach((input) => {
+    const value = input.value.trim();
+    const id = input.id;
+
+    if (!value) {
+      isValid = false;
+      stepErrors[id] = ["This field is required"];
+    } else if (value.length < 3) {
+      isValid = false;
+      stepErrors[id] = ["Minimum 3 characters required"];
+    } else if (input.type === "email") {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        isValid = false;
+        stepErrors[id] = ["Please enter a valid email"];
+      }
+    } else if (id === "confirmPassword") {
+      const pass = document.getElementById("password").value;
+      if (value !== pass) {
+        isValid = false;
+        stepErrors[id] = ["Passwords do not match"];
+      }
+    }
+  });
+
+  if (!isValid) {
+    handleApiErrors(stepErrors, "signupForm");
+  }
+  return isValid;
+}

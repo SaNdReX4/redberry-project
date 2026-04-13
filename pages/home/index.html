@@ -55,8 +55,10 @@
             </div>
           </a>
 
-          <button class="btn-login" id="openLoginBtn">Log In</button>
-          <button class="btn-signup" id="openModalBtn">Sign Up</button>
+          <div id="guest-zone">
+            <button class="btn-login" id="openLoginBtn">Log In</button>
+            <button class="btn-signup" id="openModalBtn">Sign Up</button>
+          </div>
 
           <div id="user-zone" class="user-profile hidden">
             <a href="#" class="enrolled-courses-link">Enrolled Courses</a>
@@ -451,7 +453,7 @@
           <span class="line"></span>
         </div>
 
-        <form id="signupForm">
+        <form id="signupForm" novalidate>
           <div class="form-step step-1 active">
             <div class="input-group">
               <label>Email*</label>
@@ -461,6 +463,7 @@
                 placeholder="you@example.com"
                 required
               />
+              <span class="error-msg"></span>
             </div>
             <button type="button" class="primary-btn next-btn">Next</button>
           </div>
@@ -482,6 +485,7 @@
                   alt="Toggle Password"
                 />
               </div>
+              <span class="error-msg"></span>
             </div>
 
             <div class="input-group">
@@ -500,6 +504,7 @@
                   alt="Toggle Password"
                 />
               </div>
+              <span class="error-msg"></span>
             </div>
 
             <button type="button" class="primary-btn next-btn">Next</button>
@@ -514,6 +519,7 @@
                 placeholder="Username"
                 required
               />
+              <span class="error-msg"></span>
             </div>
             <div class="upload-avatar">
               <label>Upload Avatar</label>
@@ -528,7 +534,9 @@
         </form>
         <div class="modal-footer">
           <div class="or-divider"><span>or</span></div>
-          <p>Already have an account? <a href="#">Log In</a></p>
+          <p>
+            Already have an account? <a href="#" id="switchToLogin">Log In</a>
+          </p>
         </div>
       </div>
     </div>
@@ -549,7 +557,7 @@
           <p>Log in to your account to continue</p>
         </div>
 
-        <form id="loginForm">
+        <form id="loginForm" novalidate>
           <div class="input-group">
             <label>Email*</label>
             <input
@@ -558,6 +566,7 @@
               placeholder="you@example.com"
               required
             />
+            <span class="error-msg"></span>
           </div>
 
           <div class="input-group">
@@ -576,6 +585,7 @@
                 alt="Toggle"
               />
             </div>
+            <span class="error-msg"></span>
           </div>
 
           <button type="submit" class="primary-btn">Log In</button>
@@ -589,6 +599,122 @@
         </div>
       </div>
     </div>
+
+    <!-- ავატარის მოდალი  -->
+
+    <div id="profileModal" class="modal-overlay" style="display: none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div style="width: 24px"></div>
+          <button id="closeProfileModal">
+            <img src="../../assets/icons/ic_round-close.svg" alt="Close" />
+          </button>
+        </div>
+
+        <div class="modal-title modal-title-avatar">
+          <h2>Profile</h2>
+        </div>
+
+        <div
+          class="profile-preview"
+          style="text-align: center; margin-bottom: 20px"
+        >
+          <img
+            id="profilePreviewImg"
+            src="../../assets/icons/Avatar.svg"
+            alt="User"
+            style="
+              width: 56px;
+              height: 56px;
+              border-radius: 50%;
+              object-fit: cover;
+            "
+          />
+          <div class="profile-preview-text">
+            <h3 id="profileNameDisplay">Username</h3>
+            <p style="color: #10b981; font-size: 12px">Profile is Complete</p>
+          </div>
+        </div>
+
+        <form id="profileUpdateForm">
+          <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="profileFullName" placeholder="Username" />
+          </div>
+
+          <div class="input-group">
+            <label>Email</label>
+            <input
+              type="email"
+              id="profileEmail"
+              placeholder="Email@gmail.com"
+              readonly
+            />
+          </div>
+
+          <div style="display: flex; gap: 15px">
+            <div class="input-group" style="flex: 2">
+              <label>Mobile Number</label>
+              <input
+                type="text"
+                id="profileMobile"
+                placeholder="+995 599209820"
+              />
+            </div>
+            <div class="input-group" style="flex: 1">
+              <label>Age</label>
+              <input type="number" id="profileAge" placeholder="29" />
+            </div>
+          </div>
+
+          <div class="upload-avatar">
+            <label>Upload Avatar</label>
+            <div class="upload-dropzone" id="profileDropzone">
+              <input
+                type="file"
+                id="profileAvatarInput"
+                hidden
+                accept="image/*"
+              />
+              <img src="../../assets/icons/Icon upload.svg" alt="" />
+              <p>
+                Drag and drop or
+                <span
+                  style="
+                    color: #4f46e5;
+                    cursor: pointer;
+                    text-decoration: underline;
+                  "
+                  >Upload file</span
+                >
+              </p>
+              <p style="font-size: 11px; color: #6b7280">JPG, PNG or WebP</p>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="primary-btn"
+            id="updateProfileBtn"
+            style="margin-top: 20px"
+          >
+            Update Profile
+          </button>
+          <button
+            type="submit"
+            class="primary-btn"
+            id="logout"
+            style="margin-top: 20px"
+          >
+            Log Out
+          </button>
+        </form>
+      </div>
+    </div>
+
     <script src="script.js"></script>
+    <script src="../../src/register.js"></script>
+    <script src="../../src/login.js"></script>
+    <script src="../../src/avatarmodal.js"></script>
   </body>
 </html>

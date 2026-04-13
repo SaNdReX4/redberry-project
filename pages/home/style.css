@@ -535,8 +535,8 @@ footer {
   display: block;
 }
 
-.hidden {
-  visibility: hidden;
+#user-zone.hidden {
+  display: none !important;
 }
 
 .password-wrapper {
@@ -558,3 +558,90 @@ footer {
   opacity: 0.6;
 }
 /* რეგისტრაციის მოდალი  */
+
+/* iuzer profile logo */
+
+#user-zone {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.enrolled-courses-link {
+  color: #525252;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+#headerAvatar {
+  cursor: pointer;
+  width: 56px;
+  height: 56px;
+  border-radius: 50px;
+}
+
+#profileModal .modal-content {
+  max-width: 450px;
+}
+
+.profile-preview {
+  display: flex;
+}
+
+.profile-preview-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 12px;
+  gap: 4px;
+}
+
+.modal-title-avatar h2 {
+  margin-bottom: 24px;
+}
+
+#profilePreviewImg {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ერორები რო წითლდება ინბუტების ლეიბლებშ ანუ ფორმებში რა */
+
+/* 1. თავიდან შეცდომის ტექსტი დამალულია */
+.error-msg {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 4px;
+  display: none; /* დამალვა */
+}
+
+.input-group.error label {
+  color: #ff0000 !important;
+}
+
+.input-group input {
+  color: #000000;
+}
+
+/* 2. როცა კონტეინერს დაემატება .error კლასი JavaScript-ით */
+.input-group.error input {
+  border-color: #ff0000;
+  color: #ff0000;
+}
+
+.input-group.error .error-msg {
+  display: block; /* ტექსტის გამოჩენა */
+  color: #ff0000;
+}
+
+/* 3. პასვორდის აიქონი რომ არ აირიოს ერორის დროს */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
