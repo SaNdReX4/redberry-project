@@ -31,7 +31,7 @@ nav {
   display: flex;
   align-items: center;
   cursor: pointer;
-  color: #525252;
+  color: #4f46e5;
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
@@ -651,3 +651,114 @@ footer {
 }
 
 /* GG */
+
+.browse-card-section {
+  margin-left: 177px;
+  margin-right: 177px;
+}
+
+.breadcrumb-nav {
+  margin-bottom: 16px;
+  padding: 0;
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb-list li {
+  color: #666666;
+}
+
+.breadcrumb-list a {
+  color: #666666;
+  text-decoration: none;
+  transition: color 0.15s;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+}
+
+.breadcrumb-list a:hover {
+  color: #111827;
+}
+
+.breadcrumb-list .active {
+  color: #4f46e5;
+  font-weight: 500;
+}
+
+/* filter section */
+
+.filter-section {
+  width: 309px;
+}
+
+.satauri {
+  display: flex;
+  align-items: center;
+  gap: 55px;
+}
+
+.satauri h1 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #0a0a0a;
+}
+
+.satauri p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #8a8a8a;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.Categories {
+  margin-top: 32px;
+}
+
+.Categories h2 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #8a8a8a;
+}
+
+.first-line {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.first-line span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+  gap: 10px;
+  width: 160px;
+  height: 39px;
+  color: #666666;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+
+.first-line span:nth-of-type(2) {
+  width: 111px;
+}
