@@ -121,3 +121,165 @@ function validateStepInputs(stepElement) {
   }
   return isValid;
 }
+
+// დეტალების გვერდის მარჯვენა მხარის ქარდების აკეცვა ჩამოშლის ფუნქცია
+document.querySelectorAll(".Weekly-Schedule-header").forEach((header) => {
+  header.addEventListener("click", () => {
+    const parent = header.parentElement;
+
+    // ეს არის როცა ერთი სექცია გახსნილი მაქ და სხვა სექციას ვქხნი ის გახსნილი სექცია იხურება თავისით და საბოლოოდ მარტო ერთი გახსნილი სექცია მრჩება
+    document.querySelectorAll(".Weekly-Schedule").forEach((item) => {
+      if (item !== parent) {
+        item.classList.remove("open");
+      }
+    });
+
+    parent.classList.toggle("open");
+  });
+});
+
+// მარცხენა ფეჩი დეტალებზეე
+
+const urlParams = new URLSearchParams(window.location.search);
+const courseId = urlParams.get("id");
+
+let currentBasePrice = 0;
+let selectedScheduleId = null;
+
+async function initPage() {
+  if (!courseId) return;
+
+  try {
+    const res = await fetch(
+      `https://api.redclass.redberryinternship.ge/api/courses/${courseId}`,
+    );
+    const { data } = await res.json();
+
+    document.getElementById("courseTitle").textContent = data.title;
+    document.getElementById("courseBanner").src = data.image;
+    document.getElementById("courseWeeks").textContent =
+      `${data.durationWeeks} Weeks`;
+    document.getElementById("instructorName").textContent =
+      data.instructor.name;
+    document.getElementById("instructorAvatar").src = data.instructor.avatar;
+    document.getElementById("courseDescription").innerHTML =
+      `<p>${data.description}</p>`;
+    document.getElementById("courseCategoryName").textContent =
+      data.category.name;
+
+    const ratingEl = document.getElementById("courseRating");
+    if (ratingEl) {
+      ratingEl.textContent = data.rating || "4.9";
+    }
+
+    const topicEl = document.getElementById("courseTopicName");
+    if (topicEl && data.topic) {
+      topicEl.innerHTML = `<img src="../../assets/icons/Icon_Set2 (1).svg" alt="" /> ${data.topic.name}`;
+    }
+
+    currentBasePrice = data.basePrice;
+    const basePriceEl = document.getElementById("basePriceDisplay");
+    if (basePriceEl) basePriceEl.textContent = `$${data.basePrice}`;
+
+    document.getElementById("totalPriceDisplay").textContent =
+      `$${data.basePrice}`;
+
+    fetchSchedules();
+  } catch (err) {
+    console.error("Error:", err);
+  }
+}
+
+async function fetchSchedules() {
+  try {
+    const res = await fetch(
+      `https://api.redclass.redberryinternship.ge/api/courses/${courseId}/weekly-schedules`,
+    );
+    const { data } = await res.json();
+
+    const container = document.getElementById("weeklySchedulesContainer");
+    if (!container) return;
+
+    container.innerHTML = data
+      .map(
+        (s) => `
+          <button class="opt-btn" onclick="selectSchedule(${s.id}, this)">${s.label}</button>
+      `,
+      )
+      .join("");
+  } catch (err) {
+    console.error("Schedules fetch error:", err);
+  }
+}
+
+window.selectSchedule = async (id, btn) => {
+  selectedScheduleId = id;
+  highlightBtn("weeklySchedulesContainer", btn);
+
+  const res = await fetch(
+    `https://api.redclass.redberryinternship.ge/api/courses/${courseId}/time-slots?weekly_schedule_id=${id}`,
+  );
+  const { data } = await res.json();
+
+  const container = document.getElementById("timeSlotsContainer");
+  if (!container) return;
+
+  container.innerHTML = data
+    .map(
+      (t) => `
+        <button class="opt-btn" onclick="selectTime(${t.id}, this)">${t.label}</button>
+    `,
+    )
+    .join("");
+  document.getElementById("sessionTypesContainer").innerHTML = "";
+};
+
+window.selectTime = async (timeId, btn) => {
+  highlightBtn("timeSlotsContainer", btn);
+
+  const res = await fetch(
+    `https://api.redclass.redberryinternship.ge/api/courses/${courseId}/session-types?weekly_schedule_id=${selectedScheduleId}&time_slot_id=${timeId}`,
+  );
+  const { data } = await res.json();
+
+  const container = document.getElementById("sessionTypesContainer");
+  if (!container) return;
+
+  container.innerHTML = data
+    .map(
+      (st) => `
+        <div class="session-card ${st.availableSeats === 0 ? "disabled" : ""}" 
+             onclick="${st.availableSeats > 0 ? `updatePrice(${st.priceModifier}, this)` : ""}">
+            <p>${st.name}</p>
+            <small>${st.availableSeats} seats left</small>
+            <b>+ $${st.priceModifier}</b>
+        </div>
+    `,
+    )
+    .join("");
+};
+
+window.updatePrice = (mod, el) => {
+  const modDisplay = document.getElementById("modifierDisplay");
+  if (modDisplay) modDisplay.textContent = `+ $${mod}`;
+
+  document.getElementById("totalPriceDisplay").textContent =
+    `$${currentBasePrice + mod}`;
+
+  const enrollBtn = document.getElementById("enrollBtn");
+  if (enrollBtn) enrollBtn.disabled = false;
+
+  highlightBtn("sessionTypesContainer", el);
+};
+
+function highlightBtn(containerId, activeEl) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  container
+    .querySelectorAll(".opt-btn, .session-card")
+    .forEach((el) => el.classList.remove("active"));
+  activeEl.classList.add("active");
+}
+
+document.addEventListener("DOMContentLoaded", initPage);

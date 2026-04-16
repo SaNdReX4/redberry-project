@@ -51,7 +51,7 @@ function renderCourses(courses) {
           </div>
           <div class="card-footer ${footerExtraClass}">
             <p>Starting from <span>$${course.basePrice || "0"}</span></p>
-            <button class="card-footer-btn" onclick="location.href='/course-details.html?id=${course.id}'">Details</button>
+            <a href="../details/details.html?id=${course.id}" class="card-footer-btn" style="text-decoration: none; text-align: center;">Details</a>
           </div>
         </div>
       </div>
