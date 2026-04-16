@@ -1,0 +1,653 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+body {
+  background-color: #f5f5f5;
+}
+
+header {
+  height: 108px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+nav {
+  display: flex;
+  padding-left: 177px;
+  padding-right: 177px;
+  justify-content: space-between;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.browse-courses {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #525252;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+}
+.browse-courses-link {
+  text-decoration: none;
+  margin-right: 51px;
+}
+
+.btn-signup {
+  background-color: #4f46e5;
+  color: white;
+  padding: 18px 27px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+}
+.btn-login {
+  background-color: white;
+  color: #4f46e5;
+  padding: 16px 27px;
+  border-radius: 8px;
+  border: 2px solid #4f46e5;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  margin-right: 15px;
+}
+
+/* აქ იწყება სექციის სტილები  */
+
+.xazi {
+  border: 1px solid #d1d1d1;
+}
+
+.img-section {
+  margin-left: 177px;
+  margin-right: 177px;
+  margin-top: 64px;
+  background-image: url(../../assets/images/carousel1.webp);
+  background-repeat: no-repeat;
+  height: 420px;
+  width: 1566px;
+}
+
+.btn-Browse-Courses {
+  background-color: #4f46e5;
+  color: white;
+  padding: 20px 27px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  margin-top: 40px;
+}
+
+.img-section-text {
+  padding-top: 48px;
+  padding-left: 48px;
+}
+.img-section-text p {
+  padding-top: 15px;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 100%;
+  color: white;
+}
+
+.img-section-text h1 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 100%;
+  color: white;
+}
+
+.xazebi {
+  display: flex;
+  gap: 12px;
+  margin-top: 54px;
+  padding-left: 685px;
+  align-items: center;
+}
+
+.xazebi span {
+  width: 57px;
+  height: 8px;
+  background-color: white;
+  border-radius: 999px;
+}
+
+.arrows {
+  display: flex;
+  padding-left: 505px;
+  gap: 24px;
+}
+
+.arrows-left,
+.arrows-right {
+  cursor: pointer;
+}
+
+.cards-section {
+  padding-left: 177px;
+  padding-right: 177px;
+  margin-top: 64px;
+}
+
+.cards-section h1 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 100%;
+  color: #0a0a0a;
+}
+
+.cards-section p {
+  margin-top: 6px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  color: #3d3d3d;
+}
+
+.card {
+  width: 506px;
+  height: 576px;
+  background-color: white;
+  border-radius: 12px;
+  margin-top: 32px;
+}
+
+.card img {
+  width: 466px;
+  height: 262px;
+  border-radius: 10px;
+}
+
+.card-inside-wrapper {
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+.star-rating {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.star-rating span {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  color: #525252;
+}
+
+.star-rating p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+}
+
+.card-text h2 {
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #141414;
+}
+
+.card-text p {
+  margin-top: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #666666;
+}
+
+.card-footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer p {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #8a8a8a;
+  display: flex;
+  align-items: center;
+}
+
+.card-footer span {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #141414;
+  padding-left: 8px;
+}
+
+.card-footer-btn {
+  background-color: #4f46e5;
+  color: white;
+  padding: 18px 27px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+}
+
+.card-wrapper {
+  display: flex;
+  gap: 24px;
+}
+
+.card-foote2 {
+  margin-top: 47px;
+}
+
+/* footeri */
+
+footer {
+  padding-left: 177px;
+  padding-right: 177px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo span {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #130e67;
+  padding-left: 12px;
+}
+
+.footer-left-side p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #130e67;
+  margin-top: 16px;
+}
+
+.footer-social-links {
+  margin-top: 24px;
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.footer-wrapper {
+  margin-top: 80px;
+}
+
+/* footeri */
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #666666;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0%;
+  transition: 0.3s;
+}
+
+.footer-column a:hover {
+  color: #2d2d2d;
+}
+
+.footer-column h4 {
+  color: #130e67;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.footer-right-side {
+  display: flex;
+  gap: 120px;
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 74px;
+  margin-bottom: 20px;
+}
+
+.footer-bottom-left-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  color: #666666;
+}
+
+.footer-bottom-right-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  color: #4f46e5;
+}
+
+.footer-bottom-right-text span {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  color: #666666;
+}
+
+/* რეგისტრაციის  და ლოგინის მოდალი*/
+
+.modal-content {
+  background-color: #ffffff;
+  width: 460px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.modal-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-title h2 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 100%;
+  margin-bottom: 6px;
+  color: #141414;
+}
+.modal-title p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+  line-height: 100%;
+  margin-bottom: 24px;
+}
+
+.modal-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+.progress-bar .line {
+  height: 8px;
+  flex: 1;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+}
+.progress-bar .line.active {
+  background-color: #5d3df8;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+.input-group label {
+  display: block;
+  font-size: 14px;
+  color: #4a4a4a;
+  margin-bottom: 8px;
+}
+.input-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #5d3df8;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.upload-dropzone {
+  border: 2px dashed #e0e0e0;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+.upload-dropzone span {
+  color: #5d3df8;
+  font-weight: 600;
+}
+
+.modal-footer {
+  text-align: center;
+  margin-top: 30px;
+}
+.modal-footer a {
+  color: #141414;
+  font-weight: 500;
+  font-size: 14px;
+}
+.modal-footer p {
+  color: #666666;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+}
+.or-divider {
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.or-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+.or-divider span {
+  background-color: #ffffff;
+  position: relative;
+  padding: 0 10px;
+  color: #717171;
+  font-size: 14px;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+#user-zone.hidden {
+  display: none !important;
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 45px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+  width: 20px;
+  opacity: 0.6;
+}
+/* რეგისტრაციის მოდალი  */
+
+/* iuzer profile logo */
+
+#user-zone {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.enrolled-courses-link {
+  color: #525252;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  text-decoration: none;
+}
+
+#headerAvatar {
+  cursor: pointer;
+  width: 56px;
+  height: 56px;
+  border-radius: 50px;
+}
+
+#profileModal .modal-content {
+  max-width: 450px;
+}
+
+.profile-preview {
+  display: flex;
+}
+
+.profile-preview-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 12px;
+  gap: 4px;
+}
+
+.modal-title-avatar h2 {
+  margin-bottom: 24px;
+}
+
+#profilePreviewImg {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ერორები რო წითლდება ინბუტების ლეიბლებშ ანუ ფორმებში რა */
+
+/* 1. თავიდან შეცდომის ტექსტი დამალულია */
+.error-msg {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 4px;
+  display: none; /* დამალვა */
+}
+
+.input-group.error label {
+  color: #ff0000 !important;
+}
+
+.input-group input {
+  color: #000000;
+}
+
+/* 2. როცა კონტეინერს დაემატება .error კლასი JavaScript-ით */
+.input-group.error input {
+  border-color: #ff0000;
+  color: #ff0000;
+}
+
+.input-group.error .error-msg {
+  display: block; /* ტექსტის გამოჩენა */
+  color: #ff0000;
+}
+
+/* 3. პასვორდის აიქონი რომ არ აირიოს ერორის დროს */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* GG */
