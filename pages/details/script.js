@@ -34,6 +34,8 @@ window.addEventListener("load", async () => {
       if (response.status === 200) {
         const result = await response.json();
         updateAuthUI(true, result.data);
+        window.currentUser = result.data;
+        updateProfileUI(result.data);
       } else {
         localStorage.removeItem("user_token");
         updateAuthUI(false);
@@ -561,7 +563,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // 👉 თუ ჯერ არ არის დასრულებული → Complete
+      //  თუ ჯერ არ არის დასრულებული → Complete
       const progressText = document.querySelector(".progress-text");
       const progressFill = document.querySelector(".progress-fill");
       const badge = document.querySelector(".badge");
@@ -580,4 +582,134 @@ document.addEventListener("DOMContentLoaded", () => {
       this.classList.add("retake");
     });
   }
+});
+
+// ენროლის დროს ვამომებ აქვს თუ არა პროფაილზე ყველაფერი შევსებული
+
+function isProfileComplete(user) {
+  if (!user) return false;
+
+  if (typeof user.profileComplete === "boolean") {
+    return user.profileComplete;
+  }
+
+  // fallback
+  const name = (user.fullName || user.name || "").trim();
+  const phone = (user.mobileNumber || user.mobile || user.phone || "").trim();
+  const age = Number(user.age);
+
+  return name.length > 0 && phone.length > 0 && age > 0;
+}
+
+const completeProfileBtn = document.getElementById("complete-profile");
+
+if (completeProfileBtn) {
+  completeProfileBtn.addEventListener("click", () => {
+    const user = window.currentUser;
+
+    //  NOT LOGGED IN → SIGN IN MODAL
+    if (!user) {
+      const loginModal = document.getElementById("loginModal");
+      if (loginModal) loginModal.style.display = "flex";
+      return;
+    }
+
+    //  INCOMPLETE → PROFILE MODAL
+    if (!isProfileComplete(user)) {
+      const profileModal = document.getElementById("profileModal");
+      if (profileModal) profileModal.style.display = "flex";
+      return;
+    }
+  });
+}
+
+document
+  .getElementById("profileUpdateForm")
+  ?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // წარმატების შემდეგ:
+
+    const updatedUser = await fetch(`${API_URL}/me`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("user_token")}`,
+      },
+    }).then((r) => r.json());
+
+    window.currentUser = updatedUser.data;
+
+    updateProfileUI(updatedUser.data);
+
+    document.getElementById("profileModal").style.display = "none";
+  });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const profileModal = document.getElementById("profileModal");
+  const avatarBtn = document.getElementById("headerAvatar"); // ან შენი avatar id
+
+  if (!profileModal || !avatarBtn) return;
+
+  avatarBtn.addEventListener("click", () => {
+    profileModal.style.display = "flex";
+  });
+});
+
+function updateProfileUI(user) {
+  const warningBox = document.querySelector(".Complete-Your-Profile");
+  if (!warningBox) return;
+
+  const title = warningBox.querySelector("h2");
+  const button = warningBox.querySelector("#complete-profile p");
+
+  //  REAL AUTH CHECK
+  const token = localStorage.getItem("user_token");
+  const isLoggedIn = token && token !== "null" && token !== "undefined";
+
+  //  NOT LOGGED IN
+  if (!isLoggedIn || !user) {
+    warningBox.style.display = "flex";
+
+    if (title) title.textContent = "Authentication Required";
+    if (button) button.textContent = "Sign in";
+
+    return;
+  }
+
+  //  LOGGED IN BUT INCOMPLETE
+  if (!isProfileComplete(user)) {
+    warningBox.style.display = "flex";
+
+    if (title) title.textContent = "Complete Your Profile";
+    if (button) button.textContent = "Complete";
+
+    return;
+  }
+
+  //  COMPLETE
+  warningBox.style.display = "none";
+}
+
+window.addEventListener("load", async () => {
+  const token = localStorage.getItem("user_token");
+
+  if (!token || token === "null") {
+    window.currentUser = null;
+    updateProfileUI(null);
+    return;
+  }
+
+  const res = await fetch(`${API_URL}/me`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+
+  if (res.status !== 200) {
+    window.currentUser = null;
+    updateProfileUI(null);
+    return;
+  }
+
+  const data = await res.json();
+  window.currentUser = data.data;
+
+  updateProfileUI(window.currentUser);
 });
