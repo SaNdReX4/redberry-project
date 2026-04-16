@@ -84,16 +84,17 @@
                 <img src="../../assets/icons/RightArrow (1).svg" alt="arrow" />
                 <li><a href="#">Browse</a></li>
                 <img src="../../assets/icons/RightArrow (1).svg" alt="arrow" />
-                <li class="active">Development</li>
+                <li class="active" id="courseCategoryName">Development</li>
               </ul>
             </nav>
 
-            <h1 class="course-main-title">
+            <h1 class="course-main-title" id="courseTitle">
               Advanced React & TypeScript Development
             </h1>
 
             <div class="course-banner">
               <img
+                id="courseBanner"
                 src="../../assets/images/269283b9163a230a81cd5602149953a8d051a0d1.jpg"
                 alt="Course Banner"
                 class="banner-img"
@@ -107,7 +108,7 @@
                   alt="Calendar"
                   class="stat-icon"
                 />
-                <span class="stat-text">12 Weeks</span>
+                <span class="stat-text" id="courseWeeks">12 Weeks</span>
               </div>
 
               <div class="stat-item">
@@ -126,9 +127,9 @@
                     alt="Rating"
                     class="stat-icon"
                   />
-                  <span class="stat-text">4.9</span>
+                  <span class="stat-text" id="courseRating">4.9</span>
                 </div>
-                <div class="stat-bgcolor">
+                <div class="stat-bgcolor" id="courseTopicName">
                   <img src="../../assets/icons/Icon_Set2 (1).svg" alt="" />
                   Development
                 </div>
@@ -137,16 +138,19 @@
 
             <div class="instructor-card">
               <img
+                id="instructorAvatar"
                 src="../../assets/images/39aab73a45c612abf014cd8387797410e717c3ab.jpg"
                 alt="Marilyn Mango"
                 class="instructor-avatar"
               />
-              <span class="instructor-name">Marilyn Mango</span>
+              <span class="instructor-name" id="instructorName"
+                >Marilyn Mango</span
+              >
             </div>
 
             <section class="description-section">
               <h2 class="section-title">Course Description</h2>
-              <div class="description-text">
+              <div class="description-text" id="courseDescription">
                 <p>
                   This course focuses on building scalable, production-level
                   front-end applications using React and TypeScript. It covers
@@ -170,196 +174,142 @@
               </div>
             </section>
           </div>
+
           <div class="details-right-side">
-            <div class="Weekly-Schedule">
-              <div class="Weekly-Schedule-header">
-                <div class="text-and-number">
-                  <svg
-                    class="step-icon"
-                    width="28"
-                    height="28"
-                    viewBox="0 0 28 28"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M14.4541 2.7041C17.5704 2.7041 20.5591 3.94196 22.7627 6.14551C24.9662 8.34906 26.2041 11.3378 26.2041 14.4541C26.2041 15.997 25.9 17.5247 25.3096 18.9502C24.7191 20.3758 23.8538 21.6716 22.7627 22.7627C21.6716 23.8538 20.3758 24.7191 18.9502 25.3096C17.5247 25.9 15.997 26.2041 14.4541 26.2041C12.9112 26.2041 11.3835 25.9 9.95801 25.3096C8.53243 24.7191 7.2366 23.8538 6.14551 22.7627C5.05442 21.6716 4.18913 20.3758 3.59863 18.9502C3.00823 17.5247 2.7041 15.997 2.7041 14.4541C2.7041 11.3378 3.94196 8.34906 6.14551 6.14551C8.34906 3.94196 11.3378 2.7041 14.4541 2.7041Z"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M14.8788 18.6866V9.3125L11.6565 11.656"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                  <span>Weekly Schedule</span>
-                </div>
-                <img src="../../assets/icons/arrowdown.svg" alt="arrowdown" />
-              </div>
-              <div class="Weekly-Schedule-boxs-wrapper">
-                <div class="Weekly-Schedule-boxs"><p>Mon - Wed</p></div>
-                <div class="Weekly-Schedule-boxs"><p>Tue - Thu</p></div>
-                <div class="Weekly-Schedule-boxs"><p>Wed - Fri</p></div>
-                <div class="Weekly-Schedule-boxs"><p>Weekend</p></div>
-              </div>
-            </div>
-            <div class="Weekly-Schedule">
-              <div class="Weekly-Schedule-header">
-                <div class="text-and-number">
-                  <svg
-                    width="28"
-                    height="28"
-                    viewBox="0 0 28 28"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M14.0234 2.27344C17.1397 2.27344 20.1285 3.51129 22.332 5.71484C24.5356 7.9184 25.7734 10.9071 25.7734 14.0234C25.7734 15.5663 25.4693 17.094 24.8789 18.5195C24.2884 19.9451 23.4231 21.2409 22.332 22.332C21.2409 23.4231 19.9451 24.2884 18.5195 24.8789C17.094 25.4693 15.5663 25.7734 14.0234 25.7734C12.4805 25.7734 10.9528 25.4693 9.52734 24.8789C8.10177 24.2884 6.80593 23.4231 5.71484 22.332C4.62376 21.2409 3.75846 19.9451 3.16797 18.5195C2.57757 17.094 2.27344 15.5663 2.27344 14.0234C2.27344 10.9071 3.51129 7.9184 5.71484 5.71484C7.9184 3.51129 10.9071 2.27344 14.0234 2.27344Z"
-                      stroke="#130E67"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M10.5236 12.0179C10.5236 8.30393 16.941 8.30393 16.941 12.0179C16.941 14.8213 12.7485 17.2385 10.5236 18.7677C10.5236 18.7677 14.6953 18.1717 17.4764 18.7677"
-                      stroke="#130E67"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-
-                  <span>Time Slot</span>
-                </div>
-                <img src="../../assets/icons/arrowdown.svg" alt="arrowdown" />
-              </div>
-              <div class="Time-Slot-boxs-wrapper">
-                <div class="Time-Slot-boxs">
-                  <img
-                    src="../../assets/icons/sunandcloud.svg"
-                    alt="sunandcloud"
-                  />
-                  <div class="Time-Slot-boxs-text">
-                    <h5>Morning</h5>
-                    <p>9:00 AM – 12:00 PM</p>
-                  </div>
-                </div>
-                <div class="Time-Slot-boxs">
-                  <img src="../../assets/icons/sun.svg" alt="sun" />
-                  <div class="Time-Slot-boxs-text">
-                    <h5>Afternoon</h5>
-                    <p>12:00 AM – 6:00 PM</p>
-                  </div>
-                </div>
-                <div class="Time-Slot-boxs">
-                  <img src="../../assets/icons/moon.svg" alt="moon" />
-                  <div class="Time-Slot-boxs-text">
-                    <h5>Evening</h5>
-                    <p>6:00 AM – 9:00 PM</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="Weekly-Schedule">
-              <div class="Weekly-Schedule-header">
-                <div class="text-and-number">
-                  <svg
-                    width="28"
-                    height="28"
-                    viewBox="0 0 28 28"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M13.9944 2.15332C17.1107 2.15332 20.0995 3.39117 22.303 5.59473C24.5066 7.79828 25.7444 10.787 25.7444 13.9033C25.7444 15.4462 25.4403 16.9739 24.8499 18.3994C24.2594 19.825 23.3941 21.1208 22.303 22.2119C21.2119 23.303 19.9161 24.1683 18.4905 24.7588C17.065 25.3492 15.5373 25.6533 13.9944 25.6533C12.4515 25.6533 10.9238 25.3492 9.49833 24.7588C8.07275 24.1683 6.77692 23.303 5.68583 22.2119C4.59474 21.1208 3.72945 19.825 3.13895 18.3994C2.54855 16.9739 2.24442 15.4462 2.24442 13.9033C2.24442 10.787 3.48228 7.79828 5.68583 5.59473C7.88938 3.39117 10.8781 2.15332 13.9944 2.15332Z"
-                      stroke="#130E67"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M10.3224 11.4715C10.3224 8.11886 17.6776 8.11886 17.6776 11.4715C17.6776 11.4715 17.6776 14.0009 14 14.0009C17.6776 14.0009 17.6776 16.5302 17.6776 16.5302C17.6776 19.8829 10.3224 19.8829 10.3224 16.5302"
-                      stroke="#130E67"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-
-                  <span>Session Type</span>
-                </div>
-                <img src="../../assets/icons/arrowdown.svg" alt="arrowdown" />
-              </div>
-              <div class="Session-Type-wrapper-container">
-                <div class="Session-Type-wrapper">
-                  <div class="Session-Type-boxs">
-                    <img
-                      src="../../assets/icons/computer.svg"
-                      alt="sunandcloud"
-                    />
-                    <h4>Online</h4>
-                    <p>Google Meet</p>
-                    <span>Included</span>
-                  </div>
-                  <div class="Session-Type-boxs">
-                    <img src="../../assets/icons/persons.svg" alt="persons" />
-                    <h4>In-Person</h4>
-                    <p>
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 6C11.2583 6 10.5333 6.21993 9.91661 6.63199C9.29993 7.04404 8.81928 7.62971 8.53545 8.31494C8.25162 9.00016 8.17736 9.75416 8.32205 10.4816C8.46675 11.209 8.8239 11.8772 9.34835 12.4017C9.8728 12.9261 10.541 13.2833 11.2684 13.4279C11.9958 13.5726 12.7498 13.4984 13.4351 13.2145C14.1203 12.9307 14.706 12.4501 15.118 11.8334C15.5301 11.2167 15.75 10.4917 15.75 9.75C15.75 8.75544 15.3549 7.80161 14.6517 7.09835C13.9484 6.39509 12.9946 6 12 6ZM12 12C11.555 12 11.12 11.868 10.75 11.6208C10.38 11.3736 10.0916 11.0222 9.92127 10.611C9.75097 10.1999 9.70642 9.7475 9.79323 9.31105C9.88005 8.87459 10.0943 8.47368 10.409 8.15901C10.7237 7.84434 11.1246 7.63005 11.561 7.54323C11.9975 7.45642 12.4499 7.50097 12.861 7.67127C13.2722 7.84157 13.6236 8.12996 13.8708 8.49997C14.118 8.86998 14.25 9.30499 14.25 9.75C14.25 10.3467 14.0129 10.919 13.591 11.341C13.169 11.7629 12.5967 12 12 12ZM12 1.5C9.81273 1.50248 7.71575 2.37247 6.16911 3.91911C4.62247 5.46575 3.75248 7.56273 3.75 9.75C3.75 12.6938 5.11031 15.8138 7.6875 18.7734C8.84552 20.1108 10.1489 21.3151 11.5734 22.3641C11.6995 22.4524 11.8498 22.4998 12.0037 22.4998C12.1577 22.4998 12.308 22.4524 12.4341 22.3641C13.856 21.3147 15.1568 20.1104 16.3125 18.7734C18.8859 15.8138 20.25 12.6938 20.25 9.75C20.2475 7.56273 19.3775 5.46575 17.8309 3.91911C16.2843 2.37247 14.1873 1.50248 12 1.5ZM12 20.8125C10.4503 19.5938 5.25 15.1172 5.25 9.75C5.25 7.95979 5.96116 6.2429 7.22703 4.97703C8.4929 3.71116 10.2098 3 12 3C13.7902 3 15.5071 3.71116 16.773 4.97703C18.0388 6.2429 18.75 7.95979 18.75 9.75C18.75 15.1153 13.5497 19.5938 12 20.8125Z"
-                          fill="#525252"
-                        />
-                      </svg>
-                      imgChavchavadze St.34
-                    </p>
-                    <span>+ $30</span>
-                  </div>
-                  <div class="Session-Type-boxs">
-                    <img
-                      src="../../assets/icons/Twocircles.svg"
-                      alt="circles"
-                    />
-                    <h4>Hybrid</h4>
-                    <p>
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 6C11.2583 6 10.5333 6.21993 9.91661 6.63199C9.29993 7.04404 8.81928 7.62971 8.53545 8.31494C8.25162 9.00016 8.17736 9.75416 8.32205 10.4816C8.46675 11.209 8.8239 11.8772 9.34835 12.4017C9.8728 12.9261 10.541 13.2833 11.2684 13.4279C11.9958 13.5726 12.7498 13.4984 13.4351 13.2145C14.1203 12.9307 14.706 12.4501 15.118 11.8334C15.5301 11.2167 15.75 10.4917 15.75 9.75C15.75 8.75544 15.3549 7.80161 14.6517 7.09835C13.9484 6.39509 12.9946 6 12 6ZM12 12C11.555 12 11.12 11.868 10.75 11.6208C10.38 11.3736 10.0916 11.0222 9.92127 10.611C9.75097 10.1999 9.70642 9.7475 9.79323 9.31105C9.88005 8.87459 10.0943 8.47368 10.409 8.15901C10.7237 7.84434 11.1246 7.63005 11.561 7.54323C11.9975 7.45642 12.4499 7.50097 12.861 7.67127C13.2722 7.84157 13.6236 8.12996 13.8708 8.49997C14.118 8.86998 14.25 9.30499 14.25 9.75C14.25 10.3467 14.0129 10.919 13.591 11.341C13.169 11.7629 12.5967 12 12 12ZM12 1.5C9.81273 1.50248 7.71575 2.37247 6.16911 3.91911C4.62247 5.46575 3.75248 7.56273 3.75 9.75C3.75 12.6938 5.11031 15.8138 7.6875 18.7734C8.84552 20.1108 10.1489 21.3151 11.5734 22.3641C11.6995 22.4524 11.8498 22.4998 12.0037 22.4998C12.1577 22.4998 12.308 22.4524 12.4341 22.3641C13.856 21.3147 15.1568 20.1104 16.3125 18.7734C18.8859 15.8138 20.25 12.6938 20.25 9.75C20.2475 7.56273 19.3775 5.46575 17.8309 3.91911C16.2843 2.37247 14.1873 1.50248 12 1.5ZM12 20.8125C10.4503 19.5938 5.25 15.1172 5.25 9.75C5.25 7.95979 5.96116 6.2429 7.22703 4.97703C8.4929 3.71116 10.2098 3 12 3C13.7902 3 15.5071 3.71116 16.773 4.97703C18.0388 6.2429 18.75 7.95979 18.75 9.75C18.75 15.1153 13.5497 19.5938 12 20.8125Z"
-                          fill="#525252"
-                        />
-                      </svg>
-                      Chavchavadze St.34
-                    </p>
-                    <span>+ $50</span>
-                  </div>
-                </div>
-
-                <div class="Session-Type-wrapper-footer">
-                  <p id="Session-Type-wrapper-footer-p-one">
-                    50 Seats Available
-                  </p>
-                  <p id="Session-Type-wrapper-footer-p-two">
+            <div class="invisible-one" id="selection-container">
+              <div class="Weekly-Schedule">
+                <div class="Weekly-Schedule-header">
+                  <div class="text-and-number">
                     <svg
-                      width="16"
-                      height="16"
+                      class="step-icon"
+                      width="28"
+                      height="28"
+                      viewBox="0 0 28 28"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14.4541 2.7041C17.5704 2.7041 20.5591 3.94196 22.7627 6.14551C24.9662 8.34906 26.2041 11.3378 26.2041 14.4541C26.2041 15.997 25.9 17.5247 25.3096 18.9502C24.7191 20.3758 23.8538 21.6716 22.7627 22.7627C21.6716 23.8538 20.3758 24.7191 18.9502 25.3096C17.5247 25.9 15.997 26.2041 14.4541 26.2041C12.9112 26.2041 11.3835 25.9 9.95801 25.3096C8.53243 24.7191 7.2366 23.8538 6.14551 22.7627C5.05442 21.6716 4.18913 20.3758 3.59863 18.9502C3.00823 17.5247 2.7041 15.997 2.7041 14.4541C2.7041 11.3378 3.94196 8.34906 6.14551 6.14551C8.34906 3.94196 11.3378 2.7041 14.4541 2.7041Z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M14.8788 18.6866V9.3125L11.6565 11.656"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <span>Weekly Schedule</span>
+                  </div>
+                  <img src="../../assets/icons/arrowdown.svg" alt="arrowdown" />
+                </div>
+                <div
+                  class="Weekly-Schedule-boxs-wrapper"
+                  id="weeklySchedulesContainer"
+                ></div>
+              </div>
+              <div class="Weekly-Schedule">
+                <div class="Weekly-Schedule-header">
+                  <div class="text-and-number">
+                    <svg
+                      width="28"
+                      height="28"
+                      viewBox="0 0 28 28"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14.0234 2.27344C17.1397 2.27344 20.1285 3.51129 22.332 5.71484C24.5356 7.9184 25.7734 10.9071 25.7734 14.0234C25.7734 15.5663 25.4693 17.094 24.8789 18.5195C24.2884 19.9451 23.4231 21.2409 22.332 22.332C21.2409 23.4231 19.9451 24.2884 18.5195 24.8789C17.094 25.4693 15.5663 25.7734 14.0234 25.7734C12.4805 25.7734 10.9528 25.4693 9.52734 24.8789C8.10177 24.2884 6.80593 23.4231 5.71484 22.332C4.62376 21.2409 3.75846 19.9451 3.16797 18.5195C2.57757 17.094 2.27344 15.5663 2.27344 14.0234C2.27344 10.9071 3.51129 7.9184 5.71484 5.71484C7.9184 3.51129 10.9071 2.27344 14.0234 2.27344Z"
+                        stroke="#130E67"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M10.5236 12.0179C10.5236 8.30393 16.941 8.30393 16.941 12.0179C16.941 14.8213 12.7485 17.2385 10.5236 18.7677C10.5236 18.7677 14.6953 18.1717 17.4764 18.7677"
+                        stroke="#130E67"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+
+                    <span>Time Slot</span>
+                  </div>
+                  <img src="../../assets/icons/arrowdown.svg" alt="arrowdown" />
+                </div>
+                <div
+                  class="Time-Slot-boxs-wrapper"
+                  id="timeSlotsContainer"
+                ></div>
+              </div>
+
+              <div class="Weekly-Schedule">
+                <div class="Weekly-Schedule-header">
+                  <div class="text-and-number">
+                    <svg
+                      width="28"
+                      height="28"
+                      viewBox="0 0 28 28"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M13.9944 2.15332C17.1107 2.15332 20.0995 3.39117 22.303 5.59473C24.5066 7.79828 25.7444 10.787 25.7444 13.9033C25.7444 15.4462 25.4403 16.9739 24.8499 18.3994C24.2594 19.825 23.3941 21.1208 22.303 22.2119C21.2119 23.303 19.9161 24.1683 18.4905 24.7588C17.065 25.3492 15.5373 25.6533 13.9944 25.6533C12.4515 25.6533 10.9238 25.3492 9.49833 24.7588C8.07275 24.1683 6.77692 23.303 5.68583 22.2119C4.59474 21.1208 3.72945 19.825 3.13895 18.3994C2.54855 16.9739 2.24442 15.4462 2.24442 13.9033C2.24442 10.787 3.48228 7.79828 5.68583 5.59473C7.88938 3.39117 10.8781 2.15332 13.9944 2.15332Z"
+                        stroke="#130E67"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M10.3224 11.4715C10.3224 8.11886 17.6776 8.11886 17.6776 11.4715C17.6776 11.4715 17.6776 14.0009 14 14.0009C17.6776 14.0009 17.6776 16.5302 17.6776 16.5302C17.6776 19.8829 10.3224 19.8829 10.3224 16.5302"
+                        stroke="#130E67"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+
+                    <span>Session Type</span>
+                  </div>
+                  <img src="../../assets/icons/arrowdown.svg" alt="arrowdown" />
+                </div>
+                <div
+                  class="Session-Type-wrapper-container"
+                  id="sessionTypesContainer"
+                ></div>
+              </div>
+              <div class="Enroll-Now">
+                <div class="Enroll-Now-inside">
+                  <div class="Enroll-Now-inside-top-text">
+                    <p>Total Price</p>
+                    <span id="totalPriceDisplay">$349</span>
+                  </div>
+                  <div class="Enroll-Now-inside-bottom-text">
+                    <div class="Enroll-Now-inside-bottom-text-one">
+                      <p>Base Price</p>
+                      <span id="basePriceDisplay"> + $0</span>
+                    </div>
+                    <div class="Enroll-Now-inside-bottom-text-two">
+                      <p>Session Type</p>
+                      <span id="modifierDisplay">+ $0</span>
+                    </div>
+                  </div>
+                  <button type="submit" class="Enroll-Now-btn" id="enrollBtn">
+                    Enroll Now
+                  </button>
+                </div>
+              </div>
+              <div class="Complete-Your-Profile">
+                <div class="Complete-Your-Profile-text">
+                  <h2>
+                    <svg
+                      width="22"
+                      height="22"
                       viewBox="0 0 16 16"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -369,77 +319,34 @@
                         fill="#F4A316"
                       />
                     </svg>
-                    Only 3 Seats Remaining
+
+                    Complete Your Profile
+                  </h2>
+                  <p>
+                    You need to fill in your profile details before enrolling in
+                    this <br />
+                    course.
                   </p>
-                  <p id="Session-Type-wrapper-footer-p-tree">
-                    130 Seats Available
-                  </p>
                 </div>
-              </div>
-            </div>
-            <div class="Enroll-Now">
-              <div class="Enroll-Now-inside">
-                <div class="Enroll-Now-inside-top-text">
-                  <p>Total Price</p>
-                  <span>$349</span>
-                </div>
-                <div class="Enroll-Now-inside-bottom-text">
-                  <div class="Enroll-Now-inside-bottom-text-one">
-                    <p>Base Price</p>
-                    <span> + $0</span>
-                  </div>
-                  <div class="Enroll-Now-inside-bottom-text-two">
-                    <p>Session Type</p>
-                    + $0
-                  </div>
-                </div>
-                <button type="submit" class="Enroll-Now-btn" id="EnrollNow">
-                  Enroll Now
-                </button>
-              </div>
-            </div>
-            <div class="Complete-Your-Profile">
-              <div class="Complete-Your-Profile-text">
-                <h2>
+                <div class="Complete-Profile-btn" id="complete-profile">
+                  <p>Complete</p>
                   <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 16 16"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M14.8 11.7557L9.33437 2.26379C9.19779 2.03124 9.00281 1.83843 8.76875 1.70445C8.53469 1.57048 8.26969 1.5 8 1.5C7.73031 1.5 7.4653 1.57048 7.23124 1.70445C6.99719 1.83843 6.8022 2.03124 6.66562 2.26379L1.2 11.7557C1.06858 11.9806 0.999329 12.2364 0.999329 12.4969C0.999329 12.7574 1.06858 13.0132 1.2 13.2382C1.33483 13.4721 1.52948 13.666 1.76397 13.7999C1.99847 13.9338 2.26436 14.0028 2.53437 14H13.4656C13.7354 14.0026 14.0011 13.9334 14.2353 13.7996C14.4696 13.6657 14.664 13.4719 14.7987 13.2382C14.9304 13.0134 14.9998 12.7576 15 12.4971C15.0003 12.2366 14.9312 11.9807 14.8 11.7557ZM13.9331 12.7375C13.8855 12.8188 13.8171 12.886 13.7349 12.9321C13.6528 12.9782 13.5598 13.0017 13.4656 13H2.53437C2.44017 13.0017 2.34723 12.9782 2.26508 12.9321C2.18293 12.886 2.11452 12.8188 2.06687 12.7375C2.02371 12.6645 2.00095 12.5812 2.00095 12.4963C2.00095 12.4114 2.02371 12.3281 2.06687 12.255L7.5325 2.76317C7.58111 2.68227 7.64983 2.61534 7.73197 2.56887C7.81411 2.5224 7.90688 2.49797 8.00125 2.49797C8.09562 2.49797 8.18839 2.5224 8.27053 2.56887C8.35267 2.61534 8.42139 2.68227 8.47 2.76317L13.9356 12.255C13.9784 12.3283 14.0007 12.4118 14.0003 12.4966C13.9999 12.5815 13.9767 12.6647 13.9331 12.7375ZM7.5 9.00004V6.50004C7.5 6.36743 7.55268 6.24026 7.64645 6.14649C7.74021 6.05272 7.86739 6.00004 8 6.00004C8.13261 6.00004 8.25978 6.05272 8.35355 6.14649C8.44732 6.24026 8.5 6.36743 8.5 6.50004V9.00004C8.5 9.13265 8.44732 9.25983 8.35355 9.35359C8.25978 9.44736 8.13261 9.50004 8 9.50004C7.86739 9.50004 7.74021 9.44736 7.64645 9.35359C7.55268 9.25983 7.5 9.13265 7.5 9.00004ZM8.75 11.25C8.75 11.3984 8.70601 11.5434 8.6236 11.6667C8.54119 11.7901 8.42406 11.8862 8.28701 11.943C8.14997 11.9997 7.99917 12.0146 7.85368 11.9856C7.7082 11.9567 7.57456 11.8853 7.46967 11.7804C7.36478 11.6755 7.29335 11.5418 7.26441 11.3964C7.23547 11.2509 7.25032 11.1001 7.30709 10.963C7.36385 10.826 7.45998 10.7088 7.58332 10.6264C7.70666 10.544 7.85166 10.5 8 10.5C8.19891 10.5 8.38968 10.5791 8.53033 10.7197C8.67098 10.8604 8.75 11.0511 8.75 11.25Z"
-                      fill="#F4A316"
+                      d="M20.7806 12.531L14.0306 19.281C13.8899 19.4218 13.699 19.5008 13.5 19.5008C13.301 19.5008 13.1101 19.4218 12.9694 19.281C12.8286 19.1403 12.7496 18.9494 12.7496 18.7504C12.7496 18.5514 12.8286 18.3605 12.9694 18.2198L18.4397 12.7504H3.75C3.55109 12.7504 3.36032 12.6714 3.21967 12.5307C3.07902 12.3901 3 12.1993 3 12.0004C3 11.8015 3.07902 11.6107 3.21967 11.4701C3.36032 11.3294 3.55109 11.2504 3.75 11.2504H18.4397L12.9694 5.78104C12.8286 5.64031 12.7496 5.44944 12.7496 5.25042C12.7496 5.05139 12.8286 4.86052 12.9694 4.71979C13.1101 4.57906 13.301 4.5 13.5 4.5C13.699 4.5 13.8899 4.57906 14.0306 4.71979L20.7806 11.4698C20.8504 11.5394 20.9057 11.6222 20.9434 11.7132C20.9812 11.8043 21.0006 11.9019 21.0006 12.0004C21.0006 12.099 20.9812 12.1966 20.9434 12.2876C20.9057 12.3787 20.8504 12.4614 20.7806 12.531Z"
+                      fill="#281ED2"
                     />
                   </svg>
-
-                  Complete Your Profile
-                </h2>
-                <p>
-                  You need to fill in your profile details before enrolling in
-                  this <br />
-                  course.
-                </p>
-              </div>
-              <div class="Complete-Profile-btn" id="complete-profile">
-                <p>Complete</p>
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20.7806 12.531L14.0306 19.281C13.8899 19.4218 13.699 19.5008 13.5 19.5008C13.301 19.5008 13.1101 19.4218 12.9694 19.281C12.8286 19.1403 12.7496 18.9494 12.7496 18.7504C12.7496 18.5514 12.8286 18.3605 12.9694 18.2198L18.4397 12.7504H3.75C3.55109 12.7504 3.36032 12.6714 3.21967 12.5307C3.07902 12.3901 3 12.1993 3 12.0004C3 11.8015 3.07902 11.6107 3.21967 11.4701C3.36032 11.3294 3.55109 11.2504 3.75 11.2504H18.4397L12.9694 5.78104C12.8286 5.64031 12.7496 5.44944 12.7496 5.25042C12.7496 5.05139 12.8286 4.86052 12.9694 4.71979C13.1101 4.57906 13.301 4.5 13.5 4.5C13.699 4.5 13.8899 4.57906 14.0306 4.71979L20.7806 11.4698C20.8504 11.5394 20.9057 11.6222 20.9434 11.7132C20.9812 11.8043 21.0006 11.9019 21.0006 12.0004C21.0006 12.099 20.9812 12.1966 20.9434 12.2876C20.9057 12.3787 20.8504 12.4614 20.7806 12.531Z"
-                    fill="#281ED2"
-                  />
-                </svg>
+                </div>
               </div>
             </div>
             <!-- ენროლი როა კურსის მაგის დეტალი  -->
-            <div class="course-card">
+            <div class="course-card" id="enrolled-card" style="display: none">
               <div class="badge">Enrolled</div>
 
               <div class="info-item">
