@@ -874,3 +874,52 @@ footer {
   color: #8a8a8a;
   margin-top: 16px;
 }
+
+.card-section {
+  margin-left: 90px;
+  width: 100%;
+}
+
+.card-section-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-section-top h2 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #666666;
+  margin-top: 16px;
+}
+
+.browse-course-wrapper {
+  display: flex;
+  width: 1566px;
+}
+
+.sort-by {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+  gap: 10px;
+  width: 234px;
+  height: 49px;
+  color: #666666;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+
+.sort-by span {
+  color: #4f46e5;
+}
+
+.card-wrapper {
+  margin-top: 32px;
+}
